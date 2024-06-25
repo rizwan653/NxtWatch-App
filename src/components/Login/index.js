@@ -14,6 +14,7 @@ import {
   ShowPasswordLabel,
   LoginButton,
   ErrorMessage,
+  GuestLoginBtn,
 } from './styledComponents'
 
 import NxtWatchContext from '../../context/NxtWatchContext'
@@ -117,6 +118,25 @@ class Login extends Component {
     )
   }
 
+  onClickGuestLogin = async () => {
+    const guestDetails = {
+      username: 'rahul',
+      password: 'rahul@2021',
+    }
+    const apiUrl = 'https://apis.ccbp.in/login'
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(guestDetails),
+    }
+    const response = await fetch(apiUrl, options)
+    const data = await response.json()
+    if (response.ok) {
+      this.onLoginSuccess(data.jwt_token)
+    } else {
+      this.onLoginFailure(data.error_msg)
+    }
+  }
+
   render() {
     const {errorMsg, showErrorMsg} = this.state
     const jwtToken = Cookies.get('jwt_token')
@@ -142,6 +162,9 @@ class Login extends Component {
                 {this.renderPasswordInput(darkTheme)}
                 <LoginButton type="submit">Login</LoginButton>
                 {showErrorMsg && <ErrorMessage>*{errorMsg}</ErrorMessage>}
+                <GuestLoginBtn type="button" onClick={this.onClickGuestLogin}>
+                  Guest Login
+                </GuestLoginBtn>
               </LoginContainer>
             </BgContainer>
           )

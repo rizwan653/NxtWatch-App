@@ -77,7 +77,7 @@ export const HomeBodyContainer = styled.div`
 
 export const SearchContainer = styled.div`
   border: 1px solid #909090;
-  border-radius: 2px;
+  border-radius: 50px;
   margin: 18px;
   width: 90%;
   display: flex;
@@ -91,7 +91,7 @@ export const SearchInput = styled.input`
   font-family: 'Roboto';
   color: ${props => (props.darkTheme ? '#ffffff' : '#000000')};
   font-size: 16px;
-  padding: 5px 12px;
+  padding: 10px 12px;
   border: none;
   outline: none;
   width: 100%;
@@ -109,6 +109,7 @@ export const SearchButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 0 50px 50px 0;
 `
 
 export const LoaderContainer = styled.div`

@@ -94,3 +94,19 @@ export const ErrorMessage = styled.p`
   font-size: 12px;
   font-weight: 500;
 `
+export const GuestLoginBtn = styled.button`
+  margin-top: 10px;
+  background-color: #00ff40;
+  padding: 7px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  color: #000000;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 15px;
+  &:hover {
+    background-color: #03c03c;
+  }
+`
